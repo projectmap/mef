@@ -8,30 +8,23 @@ export interface IBlogCard {
 const BlogCard: FC<IBlogCard> = ({ src, title, slug }) => {
   return (
     <>
-      <div className="md:w-1/2 lg:w-1/3 flex-col md:p-5 pt-5 ">
+      <div className="w-full rounded-[10px] md:w-1/2  shadow-lg lg:w-1/3 flex-col  pt-5 hover:h-full transform transition duration-500 hover:scale-105 ">
         <a href={`/article/${slug}`}>
-          <img
-            src={src}
-            alt={`Hero image`}
-            className="rounded-3xl hover:h-full transform transition duration-500 hover:scale-105"
-          />
+          <img src={src} alt={`Hero image`} className="rounded-t-[10px] " />
           {/* <p className="uppercase pt-1 text-xs">
             {title} / July 23, 2021
           </p> */}
-          <h2 className="text-lg md:text-3xl m-0 font-medium">{title}</h2>
-          {/* <div className="flex text-gray hover:text-black mt-1 p-0">
-            <div
-              className="flex items-center p-0 hover:bg-gray-100"
-              style={{ borderRadius: "50%" }}
-            >
-              <BsPlusCircleFill
-                size="40"
-                color="#5ca595"
-                className="hover:red"
-              />
-            </div>
-            <p className="uppercase pl-2 ">Read More</p>
-          </div> */}
+          <div className="p-[10px]">
+            <h2 className="text-lg md:text-3xl m-0 font-medium">{title}</h2>
+            <p className="h-[95px] overflow-hidden text-ellipsis mt-[10px]">
+              Magna sint voluptate adipisicing sit. Aliqua nulla pariatur id aliqua qui voluptate magna nostrud. Esse
+              cupidatat quis do culpa minim veniam mollit excepteur cillum excepteur laboris sit est sit. Sint occaecat
+              adipisicing dolore veniam sint in tempor cupidatat consequat ut sint. Id eu laborum nulla nostrud esse
+              minim id. Lorem deserunt ea nostrud sunt culpa consequat culpa sint do aliquip non pariatur.
+            </p>
+
+            <button className="mt-[10px]">Read More</button>
+          </div>
         </a>
       </div>
     </>

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Container from '../Layout/Container';
 
-const Navbar = () => {
+const Navbar: FC<{ navBarColor?: string }> = ({ navBarColor }) => {
+  
   return (
-    <nav className="sticky bg-[#14323a] opacity-90  top-0 z-[2] py-[20px]">
+    <nav className={"sticky opacity-90  bg-[#14323a] top-0 z-[2] py-[20px] " + navBarColor ?? " "}>
       <Container>
         <div className="flex justify-between mx-auto">
           <div className="w-1/2">
@@ -12,7 +13,7 @@ const Navbar = () => {
             </a>
           </div>
 
-          <div className="w-[20%] flex justify-between">
+          <div className="w-[30%] flex justify-between">
             <div className="flex  flex-col justify-center">
               <a href="/" className="text-[18px] text-white">
                 Home
@@ -29,7 +30,7 @@ const Navbar = () => {
               </a>
             </div>
             <div className="flex flex-col justify-center">
-              <a href="/contact" className="text-[18px] text-white">
+              <a href="/about-us" className="text-[18px] text-white">
                 {' '}
                 About Us
               </a>

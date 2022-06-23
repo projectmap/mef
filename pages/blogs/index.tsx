@@ -3,10 +3,11 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { blogsLists } from '..';
 import Layout from '../../components/Layout/Layout';
-import VideoCardLists from '../../components/Video/video-card-lists';
-const Video = () => {
+import { BlogLists } from '../../components/Blogs/blogs-lists';
+
+const Blogs = () => {
   return (
-    <Layout navBarColor="bg-white">
+    <Layout navBarColor={"bg-white"}>
       <div className="w-[55%]  bg-black  mx-auto">
         <Carousel showArrows={true}>
           {blogsLists.map((item) => {
@@ -26,10 +27,10 @@ const Video = () => {
         </Carousel>
       </div>
       <section>
-        <VideoCardLists videoLists={blogsLists} />
+        <BlogLists blogsLists={blogsLists} />
       </section>
     </Layout>
   );
 };
 
-export default Video;
+export default Blogs;

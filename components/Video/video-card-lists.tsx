@@ -8,7 +8,7 @@ interface IVideoCardLists {
 
 const VideoCardLists: FC<IVideoCardLists> = ({ videoLists }) => {
   return (
-    <div>
+    <div className="py-[40px]">
       {' '}
       <Container>
         <div className="py-[20px]">
@@ -21,10 +21,8 @@ const VideoCardLists: FC<IVideoCardLists> = ({ videoLists }) => {
           })}
         </div>
       </Container>
-      <div className="flex">
-        <a href={'/video'} className="text-[16px] mx-auto">
-          View all Videos
-        </a>
+       <div className="flex">
+        <button className="text-[16px] mt-[30px] bg-blue-600 text-center text-white text-[18px] mx-auto hover:opacity-50 border px-[50px] py-[20px] rounded-[80px]">See all Videos </button>
       </div>
     </div>
   );

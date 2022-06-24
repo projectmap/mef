@@ -18,7 +18,7 @@ export const HeroSection = () => {
                     nostrud. Quis cupidatat ad do sunt duis minim in cupidatat ad cillum do exercitation reprehenderit.
                   </p>
                   <button className="bg-white mt-10 px-[16px] py-[10px] text-black rounded-[10px]">
-                    View Our Work
+                    Read about us
                   </button>
                 </div>
               </div>

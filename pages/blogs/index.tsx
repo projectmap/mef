@@ -7,7 +7,7 @@ import { BlogLists } from '../../components/Blogs/blogs-lists';
 
 const Blogs = () => {
   return (
-    <Layout navBarColor={"bg-white"}>
+    <Layout navBarColor={'bg-white'}>
       <div className="w-[55%]  bg-black  mx-auto">
         <Carousel showArrows={true}>
           {blogsLists.map((item) => {

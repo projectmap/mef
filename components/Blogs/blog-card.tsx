@@ -23,7 +23,9 @@ const BlogCard: FC<IBlogCard> = ({ src, title, slug }) => {
               minim id. Lorem deserunt ea nostrud sunt culpa consequat culpa sint do aliquip non pariatur.
             </p>
 
-            <button className="mt-[20px] bg-[#14323a] px-[22px] rounded-[8px] opacity-90 py-[8px] text-white">Read More</button>
+            <button className="mt-[20px] bg-[#14323a] px-[22px] rounded-[8px] opacity-90 py-[8px] text-white">
+              Read More
+            </button>
           </div>
         </a>
       </div>

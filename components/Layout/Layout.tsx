@@ -5,7 +5,7 @@ import Image from 'next/image';
 import styles from '../../styles/Home.module.css';
 import Container from './Container';
 
-const Layout: FC<{ children: React.ReactNode,navBarColor?:string }> = ({ children,navBarColor }) => {
+const Layout: FC<{ children: React.ReactNode; navBarColor?: string }> = ({ children, navBarColor }) => {
   return (
     <div>
       <Navbar navBarColor={navBarColor} />

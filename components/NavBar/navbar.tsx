@@ -2,9 +2,8 @@ import React, { FC } from 'react';
 import Container from '../Layout/Container';
 
 const Navbar: FC<{ navBarColor?: string }> = ({ navBarColor }) => {
-  
   return (
-    <nav className={"sticky opacity-90  bg-[#14323a] top-0 z-[2] py-[20px] " + navBarColor ?? " "}>
+    <nav className={'sticky opacity-90  bg-[#14323a] top-0 z-[2] py-[20px] ' + navBarColor ?? ' '}>
       <Container>
         <div className="flex justify-between mx-auto">
           <div className="w-1/2">

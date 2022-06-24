@@ -1,22 +1,26 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Container from '../Layout/Container';
 
-const Slogans = () => {
+const Slogans: FC<{ slugsLists: any }> = ({ slugsLists }) => {
   return (
     <Container>
       <div className="flex justify-between container absolute z-[1] bottom-[-25%]">
-        <div className="rounded-[10px] text-[20px] bg-white flex flex-col justify-center text-center shadow-lg w-1/4 py-[30px] h-[250px] px-[10px]">
-          <p>"Sunt cupidatat do excepteur consectetur magna elit. Dolore officia et consectetur eu duis laborum eu"</p>
-          <p className="text-[18px] text-gray-600 mt-[10px]">Sujeet Singh</p>
-        </div>
-        <div className="rounded-[10px] shadow-lg bg-white flex flex-col justify-center text-center text-[20px]  w-1/4  py-[30px] px-[10px]">
-          <p>"Cupidatat proident ea elit mollit excepteur est deserunt eiusmod veniam laboris incididunt."</p>
-          <p className="text-[18px] text-gray-600 mt-[10px]">Sujeet Singh</p>
-        </div>
-        <div className="rounded-[10px] shadow-lg bg-white flex flex-col justify-center text-center text-[20px]  w-1/4  py-[30px] px-[10px]">
-          <p>"Cupidatat proident ea elit mollit excepteur est deserunt eiusmod veniam laboris incididunt."</p>
-          <p className="text-[18px] text-gray-600 mt-[10px]">Sujeet Singh</p>
-        </div>
+        {slugsLists.map((item: any) => {
+          return (
+            <div
+              className="rounded-[10px] text-[20px] bg-white flex flex-col justify-center text-center shadow-lg w-1/4 py-[30px] h-[250px] px-[10px]"
+              data-aos="fade-up"
+              data-aos-delay="50"
+              data-aos-duration="1500"
+              data-aos-easing="ease-in-out"
+              data-aos-mirror="true"
+              data-aos-once="true"
+            >
+              <p>"{item.slogan[0].text}"</p>
+              <p className="text-[18px] text-gray-600 mt-[10px]">{item.slogan_by[0].text}</p>
+            </div>
+          );
+        })}
       </div>
     </Container>
   );

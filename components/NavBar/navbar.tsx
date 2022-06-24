@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
 import Container from '../Layout/Container';
 
-const Navbar: FC<{ navBarColor?: string }> = ({ navBarColor }) => {
+const Navbar: FC<{ navBarColor?: string; details: any }> = ({ navBarColor, details }) => {
   return (
     <nav className={'sticky opacity-90  bg-[#14323a] top-0 z-[2] py-[20px] ' + navBarColor ?? ' '}>
       <Container>
         <div className="flex justify-between mx-auto">
           <div className="w-1/2">
-            <a href="/">
-              <img src={'https://c8.alamy.com/comp/2B4561A/demo-icon-2B4561A.jpg'} height="50px" width="50px" />
+            <a href="/" className="flex">
+              <img src={details.logo.url} height="40px" width="40px" />
+              <span className="my-auto text-[22px] ml-[10px] text-white">{details.organization_name[0].text}</span>
             </a>
           </div>
 

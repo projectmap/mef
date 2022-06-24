@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Container from '../Layout/Container';
+import ThemeContext from '../../ThemeContext';
 
-const VideoSection = () => {
+const VideoSection: FC<{ selectedVideoForHomePage: any }> = ({ selectedVideoForHomePage }) => {
+  const { embedUrl, setEmbedUrl } = React.useContext(ThemeContext);
+  console.log(selectedVideoForHomePage, 'selectedVideoForHomePage');
   return (
     <div className="relative bg-[#fefefe]">
       <Container>
         <div className="h-[65vh] flex flex-col justify-center">
           <div className="flex justify-between ">
-            <div className="w-1/2 relative cursor-pointer ">
-              <img
-                className="left-0 rounded-[60px]"
-                src={
-                  'https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80'
-                }
-              />
+            <div
+              className="w-1/2 relative cursor-pointer "
+              data-aos="fade-right"
+              data-aos-delay="50"
+              data-aos-duration="1500"
+              data-aos-easing="ease-in-out"
+              data-aos-mirror="true"
+              data-aos-once="true"
+              onClick={() => setEmbedUrl(selectedVideoForHomePage.youtube_video_link.url)}
+            >
+              <img className="left-0 rounded-[60px]" src={selectedVideoForHomePage?.thumbnail?.url} />
               <img
                 className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"
                 height="100px"
@@ -23,7 +30,15 @@ const VideoSection = () => {
                 }
               />
             </div>
-            <div className="w-1/3 flex flex-col justify-center">
+            <div
+              className="w-1/3 flex flex-col justify-center"
+              data-aos="fade-left"
+              data-aos-delay="50"
+              data-aos-duration="1500"
+              data-aos-easing="ease-in-out"
+              data-aos-mirror="true"
+              data-aos-once="true"
+            >
               <div>
                 <h1 className="text-[60px] leading-[60px] ">We are here to help children</h1>
 

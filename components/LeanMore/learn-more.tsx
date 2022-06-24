@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from '../Layout/Container';
+import Button from '../Common/button';
 
 const LearnMore = () => {
   return (
@@ -9,8 +10,7 @@ const LearnMore = () => {
           <h1 className="text-white text-[20px] w-1/3">
             Id voluptate reprehenderit cillum reprehenderit eu cupidatat occaecat esse ipsum.
           </h1>
-
-          <button className="bg-white rounded-[10px] px-[20px]">Learn More about us</button>
+          <Button buttonName="Learn about us" className="" />
         </div>
       </Container>
     </div>

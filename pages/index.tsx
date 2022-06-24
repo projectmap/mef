@@ -10,28 +10,31 @@ import { HeroSection } from '../components/HeroSection';
 import VideoSection from '../components/VideoSection';
 import Slogans from '../components/Slogs';
 import LearnMore from '../components/LeanMore/learn-more';
+import { Client } from '@prismicio/client';
+import { client } from '../prismic/client';
 
-export const blogsLists: IBlogCard[] = [
-  {
-    slug: 'asd',
-    src: 'https://c.ndtvimg.com/2021-12/nie2c78g_president-ram-nath-kovind-ima-passing-out-parade-twitter_625x300_11_December_21.jpg?im=Resize=(1230,900)',
-    title: 'asdasd',
-  },
-  {
-    slug: 'asd',
-    src: 'https://c.ndtvimg.com/2021-12/nie2c78g_president-ram-nath-kovind-ima-passing-out-parade-twitter_625x300_11_December_21.jpg?im=Resize=(1230,900)',
-    title: 'asdasd',
-  },
-  {
-    slug: 'asd',
-    src: 'https://c.ndtvimg.com/2021-12/nie2c78g_president-ram-nath-kovind-ima-passing-out-parade-twitter_625x300_11_December_21.jpg?im=Resize=(1230,900)',
-    title: 'asdasd',
-  },
-];
+export async function getServerSideProps() {
+  const homePage = await client.getAllByType('homepage');
+  const blogs = await client.getAllByType('blogs');
+  const video = await client.getAllByType('video');
+  const footer = await client.getAllByType('footer');
 
-const Home: NextPage = () => {
+  return {
+    props: {
+      homePage,
+      blogs,
+      video,
+      footer,
+    },
+  };
+}
+
+const Home: NextPage = (props: any) => {
+  const homePageData = props.homePage[0].data;
+  const selectedVideoForHomePage = props.video.find((item: any) => item.data.isfeatured)?.data;
+
   return (
-    <Layout>
+    <Layout footer={props.footer[0].data}>
       <div>
         <Head>
           <title>Hamro Nepal </title>
@@ -40,23 +43,46 @@ const Home: NextPage = () => {
         </Head>
         <div className="relative">
           <section>
-            <Slogans />
+            <Slogans slugsLists={homePageData.slogslists} />
           </section>
           <section className="">
-            <HeroSection />
+            <HeroSection data={homePageData} />
           </section>
         </div>
-        <section className="mt-[220px]">
-          <VideoSection />
+        <section className="py-[40px] mt-[220px]">
+          <VideoSection selectedVideoForHomePage={selectedVideoForHomePage} />
         </section>
-        <section>
+        <section
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="1500"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="true"
+        >
           <LearnMore />
         </section>
-        <section className="mt-[50px]">
-          <BlogLists blogsLists={blogsLists} />
+        <section
+          className="mt-[20px]"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="1500"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="true"
+        >
+          <BlogLists blogsLists={props.blogs} />
         </section>
-        <section className="mt-[20px]">
-          <VideoCardLists videoLists={blogsLists} />
+        <section
+          className="mt-[20px]"
+          data-aos="fade-up"
+          data-aos-delay="50"
+          data-aos-duration="1500"
+          data-aos-easing="ease-in-out"
+          data-aos-mirror="true"
+          data-aos-once="true"
+        >
+          <VideoCardLists videoLists={props.video} />
         </section>
       </div>
     </Layout>

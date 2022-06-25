@@ -49,7 +49,7 @@ export const HeroSection: FC<{ data: any }> = ({ data }) => {
                 data-aos-once="true"
                 data-aos-anchor-placement="top-center"
               >
-                <img className="rounded-l-[80px]  left-0" src={data.cover_picture.url} />
+                <img className="rounded-l-[80px] left-0" alt="Hero page" src={data.cover_picture.url} />
               </div>
             </div>
           </div>

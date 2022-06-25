@@ -27,7 +27,7 @@ const VideoCard: FC<IVideoCard> = ({ data }) => {
             'https://www.freepnglogos.com/uploads/youtube-play-button-png/youtube-play-button-file-youtube-play-buttom-icon-svg-wikimedia-commons-8.png'
           }
         />
-        <p className="text-[12px] leading-[25px] absolute bottom-0 md:text-[18px] m-0 font-medium px-[15px] text-white pb-[10px] py-[20px]">
+        <p className="text-[12px] w-full leading-[25px] absolute bottom-0 md:text-[18px] m-0 font-medium px-[15px] text-white pb-[10px] py-[20px]" style={{background:"linear-gradient(90deg, rgba(42,72,77,0.7245098723082983) 51%, rgba(42,70,77,1) 100%)"}}>
           {isNepali ? data.title_nepali[0].text : data.title[0].text}
         </p>
       </div>

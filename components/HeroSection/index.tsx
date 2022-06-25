@@ -1,8 +1,11 @@
 import React, { FC } from 'react';
 import Container from '../Layout/Container';
 import Button from '../Common/button';
+import ThemeContext from '../../ThemeContext';
 
 export const HeroSection: FC<{ data: any }> = ({ data }) => {
+  const { isNepali } = React.useContext(ThemeContext);
+
   return (
     <div className="relative ">
       <div className="bg-[#14323a] opacity-90  pb-[50px] ">
@@ -20,11 +23,18 @@ export const HeroSection: FC<{ data: any }> = ({ data }) => {
                 data-aos-anchor-placement="top-center"
               >
                 <div>
-                  <h1 className="text-[60px] leading-[60px]  text-center md:text-left text-white">{data.title[0].text}</h1>
+                  <h1 className="text-[60px] leading-[60px]  text-center md:text-left text-white">
+                    {isNepali ? data.title_nepali[0].text : data.title[0].text}
+                  </h1>
 
-                  <p className="text-gray-200 mt-[12px] text-center md:text-left mb-[25px]">{data.descriptions[0].text}</p>
+                  <p className="text-gray-200 mt-[12px] text-center md:text-left mb-[25px]">
+                    {isNepali ? data.description_nepali[0].text : data.descriptions[0].text}
+                  </p>
                   <a href="/about-us " className="">
-                    <Button buttonName={'Read about us'} className={'flex mx-auto md:m-0'} />
+                    <Button
+                      buttonName={isNepali ? 'हाम्रो बारेमा पढ्नुहोस्' : 'Read About Us'}
+                      className={'flex mx-auto md:m-0'}
+                    />
                   </a>
                 </div>
               </div>

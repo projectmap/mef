@@ -21,7 +21,7 @@ export async function getServerSideProps() {
   };
 }
 const Aboutus = (props: any) => {
-  const { embedUrl, setEmbedUrl, certificates, setCertificates } = React.useContext(ThemeContext);
+  const { embedUrl, setEmbedUrl, certificates, setCertificates, isNepali } = React.useContext(ThemeContext);
 
   const { aboutPage, video } = props;
   const aboutPageData = aboutPage[0].data;
@@ -41,9 +41,13 @@ const Aboutus = (props: any) => {
             data-aos-mirror="true"
             data-aos-once="true"
           >
-            <h2 className="text-center text-[40px]">{aboutPageData.title[0].text}</h2>
+            <h2 className="text-center text-[40px]">
+              {isNepali ? aboutPageData.title_nepali[0].text : aboutPageData.title[0].text}
+            </h2>
 
-            <p className="text-center w-full md:w-1/2 mx-auto">{aboutPageData.descriptions[0].text}</p>
+            <p className="text-center w-full md:w-1/2 mx-auto">
+              {isNepali ? aboutPageData.descriptions_nepali[0].text : aboutPageData.descriptions[0].text}
+            </p>
             <div
               className="w-full md:w-1/2 lg:w-1/2 flex-col md:p-5 pt-5 mx-auto cursor-pointer "
               onClick={() => setEmbedUrl(selectedVideo.youtube_video_link.url)}
@@ -76,14 +80,18 @@ const Aboutus = (props: any) => {
           data-aos-once="true"
         >
           <Container>
-            <div className="flex flex-col md:flex-row gap-[40px]  py-[40px]">
-              <div className="">
-                <h2 className="text-[32px] lg:text-[60px] font-[600]">Mission</h2>
-                <p className="text-[14px] lg:text-[18px] text-[rgba(39,39,39,.74)]">{aboutPageData.mission[0].text}</p>
+            <div className="flex flex-col justify-between md:flex-row gap-[40px]  py-[40px]">
+              <div className="w-full md:w-1/2">
+                <h2 className="text-[32px] lg:text-[60px] font-[600]">{isNepali ? 'मिशन' : 'Mission'}</h2>
+                <p className="text-[14px] lg:text-[18px] text-[rgba(39,39,39,.74)]">
+                  {isNepali ? aboutPageData.mission_in_nepal[0].text : aboutPageData.mission[0].text}
+                </p>
               </div>
-              <div>
-                <h2 className="text-[32px] lg:text-[60px]">Values</h2>
-                <p className="text-[14px] lg:text-[18px] text-[rgba(39,39,39,.74)]">{aboutPageData.values[0].text}</p>
+              <div className="w-full md:w-1/2">
+                <h2 className="text-[32px] lg:text-[60px]">{isNepali ? 'दृष्टि' : 'Vision'}</h2>
+                <p className="text-[14px] lg:text-[18px] text-[rgba(39,39,39,.74)]">
+                  {isNepali ? aboutPageData.values_nepali[0].text : aboutPageData.values[0].text}
+                </p>
               </div>
             </div>
           </Container>
@@ -98,7 +106,9 @@ const Aboutus = (props: any) => {
             data-aos-mirror="true"
             data-aos-once="true"
           >
-            <h3 className="text-center text-[32px] lg:text-[60px]">Meet the team who make this possible</h3>
+            <h3 className="text-center text-[32px] lg:text-[60px]">
+              {isNepali ? 'यो सम्भव बनाउने टोलीलाई भेट्नुहोस्' : 'Meet the team who make this possible'}
+            </h3>
             <Carousel>
               {aboutPageData.team_photos.map((item: any) => {
                 return (
@@ -121,14 +131,18 @@ const Aboutus = (props: any) => {
           data-aos-once="true"
         >
           <Container>
-            <h2 className="text-center text-[24px] lg:text-[40px] ">{aboutPageData.certificate_title[0].text}</h2>
+            <h2 className="text-center text-[24px] lg:text-[40px] ">
+              {isNepali ? aboutPageData.certificate_title_nepali[0].text : aboutPageData.certificate_title[0].text}
+            </h2>
 
-            <p className="text-center py-[10px]">Distributed by : Nepal Notary Public Council</p>
+            <p className="text-center py-[10px]">
+              {isNepali ? 'वितरण: नेपाल नोटरी पब्लिक काउन्सिल' : 'Distributed by : Nepal Notary Public Council'}
+            </p>
             <button
               onClick={() => setCertificates(aboutPageData.documents)}
               className="transform  transition duration-500 hover:scale-105 text-[16px] mt-[30px] hover:bg-[#14323a] bg-white text-black border-[#14323a] border text-center flex mx-auto hover:text-white text-[18px] mx-auto  px-[50px] py-[20px] rounded-[80px]"
             >
-              View Certificates
+              {isNepali ? 'कागजातहरू हेर्नुहोस्' : 'View Documents'}
             </button>
           </Container>
         </section>

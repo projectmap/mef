@@ -12,14 +12,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [embedUrl, setEmbedUrl] = React.useState();
   const [language, setLanguage] = React.useState('np');
   const [isNepali, setIsNepali] = React.useState(true);
-
-  
-
   const [certificates, setCertificates] = React.useState(undefined);
 
   React.useEffect(() => {
-    
-  },[])
+    setIsNepali(language === 'np');
+  }, [language]);
   React.useEffect(() => {
     AOS.init();
   }, []);
@@ -43,7 +40,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [embedUrl, certificates]);
   return (
-    <ThemeContext.Provider value={{ embedUrl, setEmbedUrl, certificates, setCertificates, language, setLanguage }}>
+    <ThemeContext.Provider
+      value={{ embedUrl, setEmbedUrl, certificates, setCertificates, language, setLanguage, isNepali }}
+    >
       <Component {...pageProps} />
       <EmbedVideo />
     </ThemeContext.Provider>

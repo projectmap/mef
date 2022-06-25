@@ -5,7 +5,7 @@ export interface IVideoCard {
   data: any;
 }
 const VideoCard: FC<IVideoCard> = ({ data }) => {
-  const { embedUrl, setEmbedUrl } = React.useContext(ThemeContext);
+  const { embedUrl, setEmbedUrl, isNepali } = React.useContext(ThemeContext);
 
   console.log(data, 'data');
   return (
@@ -28,7 +28,7 @@ const VideoCard: FC<IVideoCard> = ({ data }) => {
           }
         />
         <p className="text-[12px] leading-[25px] absolute bottom-0 md:text-[18px] m-0 font-medium px-[15px] text-white pb-[10px] py-[20px]">
-          {data.title[0].text}
+          {isNepali ? data.title_nepali[0].text : data.title[0].text}
         </p>
       </div>
     </div>

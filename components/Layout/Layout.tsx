@@ -5,8 +5,10 @@ import Image from 'next/image';
 import styles from '../../styles/Home.module.css';
 import Container from './Container';
 import { client } from '../../prismic/client';
-import { AiFillFacebook, AiFillTwitterSquare, AiFillMail, AiFillPhone } from 'react-icons/ai';
+import { AiFillFacebook, AiFillTwitterSquare, AiFillMail, AiFillPhone, AiFillYoutube } from 'react-icons/ai';
 import Head from 'next/head';
+import { BsFillHouseDoorFill } from 'react-icons/bs';
+import ThemeContext from '../../ThemeContext';
 
 const Layout: FC<{ children: React.ReactNode; navBarColor?: string; footer: any; title: string }> = ({
   children,
@@ -14,6 +16,8 @@ const Layout: FC<{ children: React.ReactNode; navBarColor?: string; footer: any;
   footer,
   title,
 }) => {
+  const { isNepali } = React.useContext(ThemeContext);
+
   return (
     <div>
       <Head>
@@ -27,33 +31,34 @@ const Layout: FC<{ children: React.ReactNode; navBarColor?: string; footer: any;
         <Container>
           <div className="flex flex-col md:flex-row justify-between">
             <div className="flex w-full md:w-2/3 justify-between">
+              <div className="">
+                <a href="/" className="flex">
+                  <img src={footer.logo.url} height="50px" width="50px" />
+                  <span className="mt-auto ml-[10px]">
+                    {isNepali ? footer.organization_name_nepali[0].text : footer.organization_name[0].text}
+                  </span>
+                </a>
+                <p className="mt-[8px] w-full">{footer.organization_slogan[0].text}</p>
+              </div>
+
+              <div className="flex w-1/3 flex-col justify-between">
+                <a href="/" className="hover:opacity-50">
+                  {isNepali ? 'घर' : 'Home'}
+                </a>
+                <a href="/video" className="mt-[10px] hover:opacity-50">
+                  {isNepali ? 'भिडियो' : 'Video'}
+                </a>
+                <a href="/blogs" className="mt-[10px] hover:opacity-50">
+                  {isNepali ? 'ब्लगहरू' : 'Blogs'}
+                </a>
+                <a href="/about-us" className="mt-[10px] hover:opacity-50">
+                  {isNepali ? 'हाम्रोबारे' : 'About Us'}
+                </a>
+              </div>
+            </div>
 
             <div className="">
-              <a href="/" className="flex">
-                <img src={footer.logo.url} height="50px" width="50px" />
-                <span className="mt-auto ml-[10px]">{footer.organization_name[0].text}</span>
-              </a>
-              <p className="mt-[8px] w-full md:w-1/3">{footer.organization_slogan[0].text}</p>
-            </div>
-
-            <div className="flex w-1/3 flex-col justify-between">
-              <a href="/" className="hover:opacity-50">
-                Home
-              </a>
-              <a href="/video" className="mt-[10px] hover:opacity-50">
-                Video
-              </a>
-              <a href="/blogs" className="mt-[10px] hover:opacity-50">
-                Blogs
-              </a>
-              <a href="/about-us" className="mt-[10px] hover:opacity-50">
-                About Us
-              </a>
-            </div>
-            </div>
-
-            <div className="">
-              <p>Lets connect</p>
+              <p>{isNepali ? 'भेटौं' : 'Lets connect'}</p>
               <div className="mt-[8px] flex ml-[2px]">
                 <div className="my-auto ml-[2px]">
                   <AiFillMail />
@@ -67,12 +72,21 @@ const Layout: FC<{ children: React.ReactNode; navBarColor?: string; footer: any;
                 </div>
                 <a className=" block ml-[8px]"> {footer.phone_number[0].text}</a>
               </div>
+              <div className="mt-[8px] flex ml-[2px]">
+                <div className="my-auto ml-[2px]">
+                  <BsFillHouseDoorFill />
+                </div>
+                <a className=" block ml-[8px]"> {footer.address[0].text}</a>
+              </div>
               <div className="flex mt-[8px] ">
                 <a href={footer.facebook_page[0].text} target="_blank">
                   <AiFillFacebook size={25} />
                 </a>
                 <a href={footer.twitter_page[0].text} target="_blank" className="ml-[5px]">
                   <AiFillTwitterSquare size={25} />
+                </a>
+                <a href={footer.youtubepage.url} target="_blank" className="ml-[5px]">
+                  <AiFillYoutube size={25} />
                 </a>
               </div>
             </div>

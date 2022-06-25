@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import ThemeContext from '../../ThemeContext';
 
 export interface IBlogCard {
   data: any;
@@ -6,6 +7,8 @@ export interface IBlogCard {
 }
 const BlogCard: FC<IBlogCard> = (props) => {
   const { data, slugs } = props;
+  const { isNepali } = React.useContext(ThemeContext);
+
   return (
     <>
       <div className="w-full group rounded-[10px] md:w-1/2  shadow-lg lg:w-[32%] flex-col  pt-5 hover:h-full transform transition duration-500 hover:scale-105 ">
@@ -19,7 +22,7 @@ const BlogCard: FC<IBlogCard> = (props) => {
             </p>
 
             <button className="mt-[20px] group-hover:bg-[#14323a] px-[32px] rounded-[22px] border opacity-90 py-[12px] group-hover:text-white">
-              Read More
+              {isNepali ? 'पढ्नुहोस्' : 'Read More'}
             </button>
           </div>
         </a>

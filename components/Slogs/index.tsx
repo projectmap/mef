@@ -1,7 +1,10 @@
 import React, { FC } from 'react';
 import Container from '../Layout/Container';
+import ThemeContext from '../../ThemeContext';
 
 const Slogans: FC<{ slugsLists: any }> = ({ slugsLists }) => {
+  const { isNepali } = React.useContext(ThemeContext);
+
   return (
     <Container>
       <div className="flex justify-between container absolute z-[1] bottom-[-25%]">
@@ -16,8 +19,10 @@ const Slogans: FC<{ slugsLists: any }> = ({ slugsLists }) => {
               data-aos-mirror="true"
               data-aos-once="true"
             >
-              <p>"{item.slogan[0].text}"</p>
-              <p className="text-[18px] text-gray-600 mt-[10px]">{item.slogan_by[0].text}</p>
+              <p>"{isNepali ? item.slogan_nepali[0].text : item.slogan[0].text}"</p>
+              <p className="text-[18px] text-gray-600 mt-[10px]">
+                {isNepali ? item.slogan_by_nepali[0].text : item.slogan_by[0].text}
+              </p>
             </div>
           );
         })}

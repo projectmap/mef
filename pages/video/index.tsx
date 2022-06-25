@@ -7,6 +7,7 @@ import Layout from '../../components/Layout/Layout';
 import { client } from '../../prismic/client';
 import Container from '../../components/Layout/Container';
 import VideoCard from '../../components/Video/video-card';
+import ThemeContext from '../../ThemeContext';
 
 export async function getServerSideProps() {
   const video = await client.getAllByType('video');
@@ -20,6 +21,8 @@ export async function getServerSideProps() {
   };
 }
 const Video = (props: any) => {
+  const { isNepali } = React.useContext(ThemeContext);
+
   return (
     <Layout navBarColor="bg-white" footer={props.footer[0].data} title="Bhumika Nepal | Video">
       <section
@@ -33,7 +36,9 @@ const Video = (props: any) => {
       >
         <Container>
           <div className="py-[30px]">
-            <h2 className="text-[40px] font-[500] text-center">Our all Work Videos</h2>
+            <h2 className="text-[40px] font-[500] text-center">
+              {isNepali ? 'हाम्रो कामको भिडियोहरू' : "Our Work's Videos"}
+            </h2>
             <p className="text-center text-[rgba(39,39,39,.74)]">
               Et est magna sunt culpa exercitation eiusmod Lorem nulla proident quis dolor.
             </p>

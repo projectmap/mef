@@ -3,7 +3,7 @@ import Container from '../Layout/Container';
 import ThemeContext from '../../ThemeContext';
 
 const VideoSection: FC<{ selectedVideoForHomePage: any }> = ({ selectedVideoForHomePage }) => {
-  const { embedUrl, setEmbedUrl } = React.useContext(ThemeContext);
+  const { embedUrl, setEmbedUrl,isNepali } = React.useContext(ThemeContext);
   console.log(selectedVideoForHomePage, 'selectedVideoForHomePage');
   return (
     <div className="relative bg-[#fefefe]">
@@ -40,12 +40,10 @@ const VideoSection: FC<{ selectedVideoForHomePage: any }> = ({ selectedVideoForH
               data-aos-once="true"
             >
               <div>
-                <h1 className="text-[30px] text-center lg:text-[60px] leading-[60px] ">We are here to help children</h1>
+                <h1 className="text-[30px] text-center lg:text-[60px] leading-[60px] ">{isNepali? selectedVideoForHomePage.title_nepali[0].text :selectedVideoForHomePage.title[0].text}</h1>
 
                 <p className="text-gray-600 text-center mt-[12px]">
-                  Quis adipisicing do eiusmod elit aliqua. In sunt sunt proident dolore consectetur cillum. Nisi
-                  cupidatat officia anim incididunt. Nulla culpa ut cupidatat nisi. Excepteur velit sit laborum nostrud.
-                  Quis cupidatat ad do sunt duis minim in cupidatat ad cillum do exercitation reprehenderit.
+                  {isNepali ? selectedVideoForHomePage.descriptions_nepali[0].text :  selectedVideoForHomePage.descriptions[0].text }
                 </p>
               </div>
             </div>

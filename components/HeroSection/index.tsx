@@ -10,7 +10,7 @@ export const HeroSection: FC<{ data: any }> = ({ data }) => {
     <div className="relative ">
       <div className="bg-[#14323a] opacity-90  pb-[50px] ">
         <Container>
-          <div className="h-[75vh] flex flex-col justify-center" >
+          <div className="h-[75vh] flex flex-col justify-center">
             <div className="flex justify-between ">
               <div
                 className="w-full md:w-1/3  flex flex-col justify-center"

@@ -8,6 +8,7 @@ const EmbedVideo = () => {
     return null;
   }
 
+  console.log(embedUrl, 'embedUrl');
   return (
     <>
       <div className="fixed flex flex-col justify-between bg-black w-screen h-screen z-[2] opacity-50 "></div>
@@ -25,7 +26,7 @@ const EmbedVideo = () => {
         <div className="flex justify-center">
           <div className="relative overflow-hidden pt-[56%] w-[100vw]  mx-auto lg:w-[774px]  lg:mt-0">
             <iframe
-              src={'https://www.youtube-nocookie.com/embed/0Q4J8KufCQg?autoplay=1'}
+              src={embedUrl + '?autoplay=1'}
               frameBorder="0"
               className="bg-[#080808] rounded-24  absolute w-[100%] h-[95%] inset-0"
               allow="autoplay; fullscreen; picture-in-picture"

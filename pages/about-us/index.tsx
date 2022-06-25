@@ -5,6 +5,7 @@ import Layout from '../../components/Layout/Layout';
 import { Carousel } from 'react-responsive-carousel';
 import { client } from '../../prismic/client';
 import ThemeContext from '../../ThemeContext';
+import CertificateModal from '../../components/Common/CertificatesModal';
 
 export async function getServerSideProps() {
   const aboutPage = await client.getAllByType('about_page');
@@ -20,13 +21,15 @@ export async function getServerSideProps() {
   };
 }
 const Aboutus = (props: any) => {
-  const { embedUrl, setEmbedUrl } = React.useContext(ThemeContext);
+  const { embedUrl, setEmbedUrl, certificates, setCertificates } = React.useContext(ThemeContext);
 
   const { aboutPage, video } = props;
   const aboutPageData = aboutPage[0].data;
   const selectedVideo = video.find((item: any) => item.data.isforaboutpage).data;
+  console.log(aboutPageData, 'aboutPageData');
   return (
-    <Layout navBarColor="bg-white" footer={props.footer[0].data}>
+    <Layout navBarColor="bg-white" footer={props.footer[0].data} title="Bhumika Nepal | About Us">
+      <CertificateModal certificates={certificates} setCertificate={setCertificates} />
       <div className="py-[20px] pb-0">
         <Container>
           <div
@@ -40,9 +43,9 @@ const Aboutus = (props: any) => {
           >
             <h2 className="text-center text-[40px]">{aboutPageData.title[0].text}</h2>
 
-            <p className="text-center w-1/2 mx-auto">{aboutPageData.descriptions[0].text}</p>
+            <p className="text-center w-full md:w-1/2 mx-auto">{aboutPageData.descriptions[0].text}</p>
             <div
-              className="w-full md:w-1/2 lg:w-1/2 flex-col md:p-5 pt-5 mx-auto "
+              className="w-full md:w-1/2 lg:w-1/2 flex-col md:p-5 pt-5 mx-auto cursor-pointer "
               onClick={() => setEmbedUrl(selectedVideo.youtube_video_link.url)}
             >
               <div className="relative">
@@ -73,14 +76,14 @@ const Aboutus = (props: any) => {
           data-aos-once="true"
         >
           <Container>
-            <div className="flex gap-[40px]  py-[40px]">
+            <div className="flex flex-col md:flex-row gap-[40px]  py-[40px]">
               <div className="">
-                <h2 className="text-[60px] font-[600]">Mission</h2>
-                <p className="text-[18px] text-[rgba(39,39,39,.74)]">{aboutPageData.mission[0].text}</p>
+                <h2 className="text-[32px] lg:text-[60px] font-[600]">Mission</h2>
+                <p className="text-[14px] lg:text-[18px] text-[rgba(39,39,39,.74)]">{aboutPageData.mission[0].text}</p>
               </div>
               <div>
-                <h2 className="text-[60px] font-[600]">Values</h2>
-                <p className="text-[18px] text-[rgba(39,39,39,.74)]">{aboutPageData.values[0].text}</p>
+                <h2 className="text-[32px] lg:text-[60px]">Values</h2>
+                <p className="text-[14px] lg:text-[18px] text-[rgba(39,39,39,.74)]">{aboutPageData.values[0].text}</p>
               </div>
             </div>
           </Container>
@@ -95,7 +98,7 @@ const Aboutus = (props: any) => {
             data-aos-mirror="true"
             data-aos-once="true"
           >
-            <h3 className="text-center text-[60px]">Meet the team who make this possible</h3>
+            <h3 className="text-center text-[32px] lg:text-[60px]">Meet the team who make this possible</h3>
             <Carousel>
               {aboutPageData.team_photos.map((item: any) => {
                 return (
@@ -118,10 +121,13 @@ const Aboutus = (props: any) => {
           data-aos-once="true"
         >
           <Container>
-            <h2 className="text-center text-[40px]">{aboutPageData.certificate_title[0].text}</h2>
+            <h2 className="text-center text-[24px] lg:text-[40px] ">{aboutPageData.certificate_title[0].text}</h2>
 
             <p className="text-center py-[10px]">Distributed by : Nepal Notary Public Council</p>
-            <button className="transform  transition duration-500 hover:scale-105 text-[16px] mt-[30px] hover:bg-[#14323a] bg-white text-black border-[#14323a] border text-center flex mx-auto hover:text-white text-[18px] mx-auto  px-[50px] py-[20px] rounded-[80px]">
+            <button
+              onClick={() => setCertificates(aboutPageData.documents)}
+              className="transform  transition duration-500 hover:scale-105 text-[16px] mt-[30px] hover:bg-[#14323a] bg-white text-black border-[#14323a] border text-center flex mx-auto hover:text-white text-[18px] mx-auto  px-[50px] py-[20px] rounded-[80px]"
+            >
               View Certificates
             </button>
           </Container>

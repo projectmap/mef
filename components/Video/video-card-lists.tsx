@@ -17,7 +17,7 @@ const VideoCardLists: FC<IVideoCardLists> = ({ videoLists }) => {
             Et est magna sunt culpa exercitation eiusmod Lorem nulla proident quis dolor.
           </p>
         </div>
-        <div className="flex gap-[10px]">
+        <div className="flex flex-wrap gap-[10px]">
           {videoLists.map((article: any, i: number) => {
             return <VideoCard {...article} key={i.toString()} />;
           })}

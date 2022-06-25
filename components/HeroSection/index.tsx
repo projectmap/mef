@@ -10,7 +10,7 @@ export const HeroSection: FC<{ data: any }> = ({ data }) => {
           <div className="h-[75vh] flex flex-col justify-center">
             <div className="flex justify-between ">
               <div
-                className="w-1/3 flex flex-col justify-center"
+                className="w-full md:w-1/3  flex flex-col justify-center"
                 data-aos="fade-up"
                 data-aos-delay="50"
                 data-aos-duration="1500"
@@ -20,16 +20,16 @@ export const HeroSection: FC<{ data: any }> = ({ data }) => {
                 data-aos-anchor-placement="top-center"
               >
                 <div>
-                  <h1 className="text-[60px] leading-[60px] text-white">{data.title[0].text}</h1>
+                  <h1 className="text-[60px] leading-[60px]  text-center md:text-left text-white">{data.title[0].text}</h1>
 
-                  <p className="text-gray-200 mt-[12px] mb-[25px]">{data.descriptions[0].text}</p>
+                  <p className="text-gray-200 mt-[12px] text-center md:text-left mb-[25px]">{data.descriptions[0].text}</p>
                   <a href="/about-us " className="">
-                    <Button buttonName={'Read about us'} className={''} />
+                    <Button buttonName={'Read about us'} className={'flex mx-auto md:m-0'} />
                   </a>
                 </div>
               </div>
               <div
-                className="w-1/2 absolute right-0 top-[5%]"
+                className="hidden md:block w-1/2 absolute right-0 top-[5%]"
                 data-aos="fade-down"
                 data-aos-offset="200"
                 data-aos-delay="50"

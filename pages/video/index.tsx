@@ -21,8 +21,9 @@ export async function getServerSideProps() {
 }
 const Video = (props: any) => {
   return (
-    <Layout navBarColor="bg-white" footer={props.footer[0].data}>
+    <Layout navBarColor="bg-white" footer={props.footer[0].data} title="Bhumika Nepal | Video">
       <section
+        className="py-[40px]"
         data-aos="fade-up"
         data-aos-delay="50"
         data-aos-duration="1500"
@@ -37,7 +38,7 @@ const Video = (props: any) => {
               Et est magna sunt culpa exercitation eiusmod Lorem nulla proident quis dolor.
             </p>
           </div>
-          <div className="flex gap-[10px]">
+          <div className="flex flex-wrap gap-[10px]">
             {props.video.map((article: any, i: number) => {
               return <VideoCard {...article} key={i.toString()} />;
             })}

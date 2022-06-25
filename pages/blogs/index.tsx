@@ -17,7 +17,7 @@ export async function getServerSideProps() {
 }
 const Blogs = (props: any) => {
   return (
-    <Layout navBarColor={'bg-white'} footer={props.footer[0].data}>
+    <Layout navBarColor={'bg-white'} footer={props.footer[0].data} title="Bhumika Nepal | Blogs">
       <div
         className="py-[50px]"
         data-aos="fade-up"
@@ -34,7 +34,7 @@ const Blogs = (props: any) => {
               Et est magna sunt culpa exercitation eiusmod Lorem nulla proident quis dolor.
             </p>
           </div>
-          <div className="flex gap-[25px]">
+          <div className="flex flex-wrap gap-[25px]">
             {props.blogs.map((article: any, i: number) => {
               return <BlogCard {...article} key={i.toString()} />;
             })}

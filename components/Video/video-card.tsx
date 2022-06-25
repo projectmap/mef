@@ -10,7 +10,7 @@ const VideoCard: FC<IVideoCard> = ({ data }) => {
   console.log(data, 'data');
   return (
     <div
-      className="w-full md:w-1/2 lg:w-1/3 flex-col md:p-5 pt-5 cursor-pointer"
+      className="w-full md:w-1/2 lg:w-[32%] flex-col md:p-5 pt-5 cursor-pointer"
       onClick={() => setEmbedUrl(data?.youtube_video_link.url)}
     >
       <div className="relative">

@@ -16,7 +16,7 @@ export const BlogLists: FC<IBlogsLists> = ({ blogsLists }) => {
             Et est magna sunt culpa exercitation eiusmod Lorem nulla proident quis dolor.
           </p>
         </div>
-        <div className="flex gap-[25px]">
+        <div className="flex flex-wrap gap-[12px]">
           {blogsLists.map((article: any, i: number) => {
             return <BlogCard {...article} key={i.toString()} />;
           })}

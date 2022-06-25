@@ -8,7 +8,7 @@ const BlogCard: FC<IBlogCard> = (props) => {
   const { data, slugs } = props;
   return (
     <>
-      <div className="w-full rounded-[10px] md:w-1/2  shadow-lg lg:w-1/3 flex-col  pt-5 hover:h-full transform transition duration-500 hover:scale-105 ">
+      <div className="w-full group rounded-[10px] md:w-1/2  shadow-lg lg:w-[32%] flex-col  pt-5 hover:h-full transform transition duration-500 hover:scale-105 ">
         <a href={`/blogs/${slugs[0]}`}>
           <img src={data.coverpicture.url} alt={`Hero image`} className="rounded-t-[10px] " />
           <div className="p-[20px] px-[20px]">
@@ -18,7 +18,7 @@ const BlogCard: FC<IBlogCard> = (props) => {
               {data.short_descriptions[0].text}
             </p>
 
-            <button className="mt-[20px] bg-[#14323a] px-[22px] rounded-[8px] opacity-90 py-[8px] text-white">
+            <button className="mt-[20px] group-hover:bg-[#14323a] px-[32px] rounded-[22px] border opacity-90 py-[12px] group-hover:text-white">
               Read More
             </button>
           </div>

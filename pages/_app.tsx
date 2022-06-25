@@ -10,6 +10,16 @@ import EmbedVideo from '../components/Common/EmbeddedVideo';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [embedUrl, setEmbedUrl] = React.useState();
+  const [language, setLanguage] = React.useState('np');
+  const [isNepali, setIsNepali] = React.useState(true);
+
+  
+
+  const [certificates, setCertificates] = React.useState(undefined);
+
+  React.useEffect(() => {
+    
+  },[])
   React.useEffect(() => {
     AOS.init();
   }, []);
@@ -26,14 +36,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
 
   React.useEffect(() => {
-    if (embedUrl) {
+    if (certificates || embedUrl) {
       avoidScroll();
     } else {
       enableScroll();
     }
-  }, [embedUrl]);
+  }, [embedUrl, certificates]);
   return (
-    <ThemeContext.Provider value={{ embedUrl, setEmbedUrl }}>
+    <ThemeContext.Provider value={{ embedUrl, setEmbedUrl, certificates, setCertificates, language, setLanguage }}>
       <Component {...pageProps} />
       <EmbedVideo />
     </ThemeContext.Provider>

@@ -34,6 +34,7 @@ const Layout: FC<{ children: React.ReactNode; navBarColor?: string; footer: any;
               <div className="">
                 <a href="/" className="flex">
                   <img src={footer.logo.url} height="50px" width="50px" />
+
                   <span className="mt-auto ml-[10px]">
                     {isNepali ? footer.organization_name_nepali[0].text : footer.organization_name[0].text}
                   </span>

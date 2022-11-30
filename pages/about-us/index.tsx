@@ -28,7 +28,7 @@ const Aboutus = (props: any) => {
   const selectedVideo = video.find((item: any) => item.data.isforaboutpage).data;
   console.log(aboutPageData, 'aboutPageData');
   return (
-    <Layout navBarColor="bg-white" footer={props.footer[0].data} title="Bhumika Nepal | About Us">
+    <Layout navBarColor="bg-white" footer={props.footer[0].data} title="MEF Nepal | About Us">
       <CertificateModal certificates={certificates} setCertificate={setCertificates} />
       <div className="py-[20px] pb-0">
         <Container>

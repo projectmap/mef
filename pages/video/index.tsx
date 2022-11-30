@@ -24,7 +24,7 @@ const Video = (props: any) => {
   const { isNepali } = React.useContext(ThemeContext);
 
   return (
-    <Layout navBarColor="bg-white" footer={props.footer[0].data} title="Bhumika Nepal | Video">
+    <Layout navBarColor="bg-white" footer={props.footer[0].data} title="MEF Nepal | Video">
       <section
         className="py-[40px]"
         data-aos="fade-up"

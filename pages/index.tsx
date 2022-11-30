@@ -34,7 +34,7 @@ const Home: NextPage = (props: any) => {
   const selectedVideoForHomePage = props.video.find((item: any) => item.data.isfeatured)?.data;
 
   return (
-    <Layout footer={props.footer[0].data} title="Bhumika Nepal">
+    <Layout footer={props.footer[0].data} title="MEF Nepal">
       <div>
         <div className="relative">
           <section className="hidden lg:block">

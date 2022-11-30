@@ -7,6 +7,7 @@ const options = [
     eng: 'Eng',
     np: 'अंग्रेजी',
     value: 'eng',
+    label: 'Eng',
   },
 
   {

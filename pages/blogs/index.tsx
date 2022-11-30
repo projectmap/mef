@@ -22,7 +22,7 @@ const Blogs = (props: any) => {
   const [count, setCount] = React.useState(3);
 
   return (
-    <Layout navBarColor={'bg-white'} footer={props.footer[0].data} title="Bhumika Nepal | Blogs">
+    <Layout navBarColor={'bg-white'} footer={props.footer[0].data} title="MEF Nepal | Blogs">
       <div
         className="py-[50px]"
         data-aos="fade-up"
